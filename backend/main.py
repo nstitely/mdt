@@ -22,3 +22,19 @@ def get_media():
     with open("media_log.json", "r") as file:
         data = json.load(file)
     return data
+
+@app.post("/api/media", response_model=List[MediaItem])
+def add_media(item: MediaItem):
+    """accept incoming json data, append it to the database, and save the file"""
+    # 1. read existing data
+    with open("media_log.json", "r") as file:
+        data = json.load(file)
+
+    # 2. append the new item 
+    data.append(item.model_dump())
+
+    # 3. write the updated list back to the file
+    with open("media_log.json", "w") as file:
+        json.dump(data, file, indent=4)
+
+    return data

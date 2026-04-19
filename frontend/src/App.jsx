@@ -19,7 +19,32 @@ function App(){
   return (
     <div>
       <h1>Media Tracking Dashboard</h1>
-      {/* loop through our data and print a list item for each one */}
+
+      {/*data entry form layout*/}
+      <div style={{ marginBottom: '40px', padding: '20px', borderTop: '2px solid #333', borderBottom: '2px solid #333'}}>
+        <h2>Log New Media</h2>
+        <form>
+          <div style={{ marginBottom: '10px'}}>
+            <label>Title: </label>
+            <input type="text" name="title" required />
+          </div>
+          <div style={{ marginBottom: '10px'}}>
+            <label>Type: </label>
+            <input type="text" name="type" placeholder="book, video game (pc), etc." required />
+          </div>
+          <div style={{ marginBottom: '10px'}}>
+            <label>Status: </label>
+            <input type="text" name="status" placeholder="finished, in progress, not started..." required />
+          </div>
+          <div style={{ marginBottom: '10px'}}>
+            <label style={{ display: 'block'}}>Notes: </label>
+            <textarea name="notes" rows="4" style={{ width: '100%', maxWidth: '400px'}} ></textarea>
+          </div>
+          <button type="submit">Save Entry</button>
+        </form>
+      </div>
+
+      {/* display fetched (saved) media list */}
       <ul>
         {mediaItems.map((item) => (
           <li key={item.id} style={{ marginBottom: '20px'}}>

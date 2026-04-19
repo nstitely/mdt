@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Hyperion",
+        "type": "Book",
+        "status": "Finished",
+        "notes": "Read in two sittings. Amazing, can't wait for the rest of the series.",
+        "rating": null
+    },
+    {
+        "id": 2,
+        "title": "Satisfactory",
+        "type": "Video Game (PC)",
+        "status": "In Progress, Gathering Dust",
+        "notes": "Unlocked oil tiers and trains.",
+        "rating": null
+    },
+    {
+        "id": 3,
+        "title": "Dune",
+        "type": "Book",
+        "status": "Finished",
+        "notes": "Super cool, sandworms are amazing and the spice must definitely flow.",
+        "rating": null
+    }
+]

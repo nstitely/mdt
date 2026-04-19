@@ -15,7 +15,36 @@ function App(){
     .catch(error => console.error("Error fetching data:", error))
   }, [])
 
-  // 3. the HTML (JSX) that actually gets rendered to the screen
+  // 3. form submission
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    const formData = new FormData(e.target)
+    const newItem = {
+      id: Date.now(),
+      title: formData.get('title'),
+      type: formData.get('type'),
+      status: formData.get('status'),
+      notes: formData.get('notes'),
+      rating: null
+    }
+
+    fetch('http://127.0.0.1:8000/api/media', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newItem),
+    })
+    .then(response => response.json())
+    .then(updatedData => {
+      setMediaItems(updatedData)
+      e.target.reset()
+    })
+    .catch(error => console.error("error saving data:", error))
+  }
+
+  // 4. the HTML (JSX) that actually gets rendered to the screen
   return (
     <div>
       <h1>Media Tracking Dashboard</h1>
@@ -23,7 +52,7 @@ function App(){
       {/*data entry form layout*/}
       <div style={{ marginBottom: '40px', padding: '20px', borderTop: '2px solid #333', borderBottom: '2px solid #333'}}>
         <h2>Log New Media</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '10px'}}>
             <label>Title: </label>
             <input type="text" name="title" required />

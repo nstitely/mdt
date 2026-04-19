@@ -22,5 +22,13 @@
         "status": "Finished",
         "notes": "Super cool, sandworms are amazing and the spice must definitely flow.",
         "rating": null
+    },
+    {
+        "id": 1776608848359,
+        "title": "Zen and the Art of Motorcycle Maintenance",
+        "type": "Book",
+        "status": "Finished",
+        "notes": "Interesting read, I agree with the author's take. Not really about motorcycles and not really about Zen either.",
+        "rating": null
     }
 ]
